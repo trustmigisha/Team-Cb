@@ -1,9 +1,73 @@
+#root .player {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: start;
+    width: 150px;
+    height: 80px;
+
+}
+#root #players {
+    position: fixed;
+    transform: translate(-50%);
+    left: 50%;
+    top: 40%;
+    width: 100%;
+    border: none;
+}
+#root #players div {
+    border: none;
+}
+#root #players #player1 {
+    position: absolute;
+    transform: translateX(-50%) translateY(70px);
+    left: 50%;
+    top: 50%;
+}
+#root #players #player2 {
+    position: absolute;
+    transform: translateX(-50%) translateY(-125px);
+    left: 50%;
+    top: 50%;
+}
+#root #players #player4 {
+    position: absolute;
+    transform: translateX(calc(75px - 50%)) translateY(calc(-35px - 47.5px));
+    left: 50%;
+    top: 50%;
+}#root #players #player3 {
+    position: absolute;
+    transform: translateX(calc(-75px - 50%)) translateY(calc(-35px - 47.5px));
+    left: 50%;
+    top: 50%;
+}#root #players #player5 {
+    position: absolute;
+    transform: translateX(calc(-75px - 50%)) translateY(calc(-35px + 47.5px));
+    left: 50%;
+    top: 50%;
+}
+#root #players #player6 {
+    position: absolute;
+    transform: translateX(calc(75px - 50%)) translateY(calc(-35px + 47.5px));
+    left: 50%;
+    top: 50%;
+}
+#root .player svg {
+    width: 50px;
+    height: 50px;
+}
+.emptyPlayer {
+    margin-top: 20px;
+}
+    
 /* Common Estimation Styles */
-li button {
+
+li .estButton {
     font-size: 1.25rem;
     background-color: rgba(211, 211, 211, 0.211);
     margin: 0px;
-    width: 60px;
+    width: 75px;
     height: 75px;
     padding: 0px;
     border-radius: 10px;
@@ -77,7 +141,8 @@ li button {
     width: 100vw;
     position: fixed;
     bottom: 0px;
-    z-index: 10;
+    z-index: 990;
+    background-color: white;
 }
 
 /* Header Styles */
@@ -144,7 +209,7 @@ header>a {
     /* width: calc(); */
     display: grid;
     grid: auto / 1.3fr 1.75fr;
-    height: 65px;
+    height: 70px;
     /* padding-bottom: 10px; */
     border-bottom: 1px navy solid;
     overflow-wrap: break-word;
@@ -190,7 +255,7 @@ header>a {
     justify-content: center; */
     /* gap: 30px;*/  
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     justify-items: center;
     align-items: center;
     overflow-wrap: anywhere;
@@ -212,18 +277,25 @@ header>a {
     display: flex;
 }
 
-#currentQueue>h4 {
+#currentQueue #avg {
+    position: fixed;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 40%;
     grid-row: 2;
     width: 40px;
-    padding: 40px 20px;
-    background-color: rgba(211, 211, 211, 0.211);
+    height: 40px;
+    padding: 30px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    background-color: rgba(211, 211, 211, 0.889);
     text-align: center;
-    margin: auto;
-    border-radius: 10px;
+    margin: 0;
+    border-radius: 50%;
 }
 
 #currentQueue img {
-    padding-top: 65px;
+    padding-top: 70px;
     width: 100%;  
     height: auto;
 }
@@ -269,7 +341,31 @@ h2 {
     box-shadow: rgba(0, 0, 128, 0.25) 2px 2px 5px;
     border-radius: 10px;
 }
-
+.liStory, #currentDelete {
+    background-color: transparent;
+    border: none;
+}
+.deleteParent {
+    position: relative;
+    width: calc(100%);
+}
+li svg, h4 svg {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    fill: none;
+    padding: 10px;
+    margin-right: 5px;
+    
+}
+li:hover svg, h4:hover svg {
+    fill: #dc3545;
+}
+li:hover svg:hover, h4:hover svg:hover {
+    border: #dc3545 solid 1px;
+}
 #storyButton {
     z-index: 999;
     background-color: white;
@@ -280,9 +376,23 @@ h2 {
     /* text-align: center; */
     font-size: 30px;
     position: fixed;
-    bottom: 50px;
+    bottom: 120px;
     left: 40px;
 }
+
+/* .liStory {
+    z-index: 999;
+    background-color: white;
+    border: 4px navy solid; 
+    color: navy;
+    padding: 100px, 80px;
+    border-radius: 4px;
+    font-size: 30px;
+    position: fixed;
+    bottom: 50px;
+    left: 70px; 
+} */
+
 #storyButton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -424,7 +534,11 @@ header>a:hover,
     } */
     }
     #storyButton {
+        bottom: 50px;
         left: 80px;
+    }
+    .liStory {
+        left: 185px;
     }
     #currentQueue>div>h4 {
         width: calc(50%);
@@ -462,6 +576,10 @@ header>a:hover,
     }
     #storyButton {
         left: 120px;
+    }
+
+    .liStory {
+        left: 245px;
     }
     #currentQueue>div>h4 {
         width: calc(40%);
